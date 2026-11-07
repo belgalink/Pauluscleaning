@@ -28,8 +28,8 @@ export async function generateMetadata({
   const area = serviceAreas.find((a) => a.slug === gemeente);
   if (!area) return {};
   return {
-    title: `Gevel-, dak- en opritreiniging in ${area.name}`,
-    description: `Gevel, dak, oprit, terras, zonnepanelen en ramen laten reinigen in ${area.name} (${area.postal}). Paulus Cleaning uit Brecht. Stuur foto's door voor een vaste prijs.`,
+    title: `Reinigingsbedrijf in ${area.name}: gevel, dak en oprit`,
+    description: `Gevel, dak, oprit, zonnepanelen en ramen laten reinigen in ${area.name} (${area.postal}) door Paulus Cleaning uit Brecht. Foto's doorsturen volstaat voor een prijs.`,
     alternates: { canonical: `/werkgebied/${area.slug}` },
   };
 }

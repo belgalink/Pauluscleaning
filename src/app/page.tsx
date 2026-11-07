@@ -16,7 +16,7 @@ import { serviceAreas, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Gevel-, dak- en opritreiniging in Brecht | Paulus Cleaning",
   description:
-    "Gevel, dak, oprit, terras, zonnepanelen en ramen vakkundig gereinigd in Brecht en de Noorderkempen. Techniek afgestemd op uw ondergrond. Foto's doorsturen volstaat voor een vaste prijs.",
+    "Gevel, dak, oprit, zonnepanelen en ramen reinigen in Brecht en de Noorderkempen. Techniek afgestemd op uw ondergrond. Stuur foto's door voor een vaste prijs.",
   alternates: { canonical: "/" },
 };
 
