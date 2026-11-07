@@ -1,7 +1,17 @@
+/**
+ * Op de demo-omgeving wijst NEXT_PUBLIC_SITE_URL naar de Vercel-URL, zodat
+ * linkvoorbeelden in WhatsApp en Slack het juiste beeld tonen. Staat de
+ * variabele niet ingesteld, dan geldt het echte domein.
+ */
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://pauluscleaning.be").replace(/\/$/, "");
+
+/** Zet NEXT_PUBLIC_NOINDEX=1 op de demo zodat Google die versie niet oppikt. */
+export const noindex = process.env.NEXT_PUBLIC_NOINDEX === "1";
+
 export const site = {
   name: "Paulus Cleaning",
   legalName: "Paulus Cleaning BV",
-  url: "https://pauluscleaning.be",
+  url: SITE_URL,
   tagline: "Gevel-, dak-, oprit- en glasreiniging in Brecht en de Noorderkempen",
   phone: "+32 474 47 32 47",
   phoneHref: "tel:+32474473247",

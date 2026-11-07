@@ -58,3 +58,16 @@ beeldverhouding, plus een item in `src/data/cases.ts`.
 - Echte Google-reviews (er staat bewust geen verzonnen social proof op de site)
 - Eventuele richtprijzen per m², als Paulus Cleaning die wil tonen
 - Een eigen afzenderdomein in Resend voor het offerteformulier
+
+## Demo versus livegang
+
+Op de demo-omgeving staan twee extra variabelen:
+
+| Variabele | Demo | Bij livegang |
+|---|---|---|
+| `NEXT_PUBLIC_SITE_URL` | de Vercel-URL, zodat linkvoorbeelden werken | `https://pauluscleaning.be` of verwijderen |
+| `NEXT_PUBLIC_NOINDEX` | `1`, zodat Google de demo niet indexeert | verwijderen |
+
+Met `NEXT_PUBLIC_NOINDEX=1` krijgt elke pagina een `noindex`-meta en verbiedt
+`robots.txt` alle crawlers. Vergeet die variabele dus niet weg te halen bij de
+overstap naar het echte domein.

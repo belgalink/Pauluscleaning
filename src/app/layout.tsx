@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import StickyCta from "@/components/StickyCta";
 import JsonLd from "@/components/JsonLd";
 import { localBusiness } from "@/lib/jsonld";
-import { site } from "@/lib/site";
+import { noindex, site } from "@/lib/site";
 
 /**
  * Fonts worden zelf gehost in /public/fonts in plaats van via next/font/google.
@@ -61,11 +61,13 @@ export const metadata: Metadata = {
       "Gevel, dak, oprit, terras, zonnepanelen en ramen vakkundig gereinigd in Brecht en de Noorderkempen.",
     images: ["/og.jpg"],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
-  },
+  robots: noindex
+    ? { index: false, follow: false, googleBot: { index: false, follow: false } }
+    : {
+        index: true,
+        follow: true,
+        googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+      },
 };
 
 export const viewport: Viewport = {
