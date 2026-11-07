@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -8,17 +8,26 @@ import JsonLd from "@/components/JsonLd";
 import { localBusiness } from "@/lib/jsonld";
 import { site } from "@/lib/site";
 
-const inter = Inter({
-  subsets: ["latin"],
+/**
+ * Fonts worden zelf gehost in /public/fonts in plaats van via next/font/google.
+ * Zo heeft de build geen netwerkverbinding met Google Fonts nodig en valt er
+ * bij het laden van de pagina niets terug te halen bij derden.
+ * Het zijn variabele fonts met de latin-subset, ruim voldoende voor Nederlands.
+ */
+const inter = localFont({
+  src: [{ path: "../../public/fonts/inter-latin.woff2", weight: "400 700", style: "normal" }],
   variable: "--font-inter",
   display: "swap",
+  fallback: ["system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+  adjustFontFallback: "Arial",
 });
 
-const archivo = Archivo({
-  subsets: ["latin"],
+const archivo = localFont({
+  src: [{ path: "../../public/fonts/archivo-latin.woff2", weight: "500 700", style: "normal" }],
   variable: "--font-archivo",
   display: "swap",
-  weight: ["500", "600", "700"],
+  fallback: ["system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+  adjustFontFallback: "Arial",
 });
 
 export const metadata: Metadata = {
