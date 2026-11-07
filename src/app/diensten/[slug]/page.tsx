@@ -174,9 +174,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             title={<>Dit is wat er onder zat</>}
             intro={`Sleep de balk om het verschil te zien. Alle beelden komen uit het eigen archief van Paulus Cleaning.`}
           />
-          <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-12">
+          <div className="mt-12 columns-1 gap-8 sm:columns-2 lg:columns-3">
             {serviceCases.map((c) => (
               <BeforeAfter
+                className="mb-10 break-inside-avoid"
                 key={c!.slug}
                 slug={c!.slug}
                 title={c!.title}
