@@ -53,19 +53,25 @@ export function Section({
   className = "",
   tone = "white",
   id,
+  tightTop = false,
 }: {
   children: ReactNode;
   className?: string;
   tone?: "white" | "surface" | "navy";
   id?: string;
+  /** Minder ruimte bovenaan, voor een sectie die direct op een kopblok volgt. */
+  tightTop?: boolean;
 }) {
   const tones = {
     white: "bg-white",
     surface: "bg-surface",
     navy: "bg-navy-900 text-white",
   };
+  const spacing = tightTop
+    ? "pt-8 pb-16 sm:pt-12 sm:pb-20 lg:pb-28"
+    : "py-16 sm:py-20 lg:py-28";
   return (
-    <section id={id} className={`${tones[tone]} py-16 sm:py-20 lg:py-28 ${className}`}>
+    <section id={id} className={`${tones[tone]} ${spacing} ${className}`}>
       <div className="container-page">{children}</div>
     </section>
   );
@@ -130,19 +136,34 @@ export function CheckItem({ children, tone = "dark" }: { children: ReactNode; to
   );
 }
 
-export function Breadcrumbs({ items }: { items: { label: string; href?: string }[] }) {
+export function Breadcrumbs({
+  items,
+  tone = "light",
+}: {
+  items: { label: string; href?: string }[];
+  /** "light" = lichte tekst op een donkere achtergrond, "dark" = het omgekeerde. */
+  tone?: "light" | "dark";
+}) {
+  const isLight = tone === "light";
   return (
     <nav aria-label="Kruimelpad" className="text-sm">
-      <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-navy-200">
+      <ol className={`flex flex-wrap items-center gap-x-2 gap-y-1 ${isLight ? "text-navy-200" : "text-muted"}`}>
         {items.map((item, i) => (
           <li key={item.label} className="flex items-center gap-2">
-            {i > 0 ? <span aria-hidden="true" className="text-navy-300/60">/</span> : null}
+            {i > 0 ? (
+              <span aria-hidden="true" className={isLight ? "text-navy-300/60" : "text-muted/50"}>/</span>
+            ) : null}
             {item.href ? (
-              <Link href={item.href} className="transition-colors hover:text-white">
+              <Link
+                href={item.href}
+                className={`transition-colors ${isLight ? "hover:text-white" : "hover:text-sky-700"}`}
+              >
                 {item.label}
               </Link>
             ) : (
-              <span className="text-white/90" aria-current="page">{item.label}</span>
+              <span className={isLight ? "text-white/90" : "text-ink"} aria-current="page">
+                {item.label}
+              </span>
             )}
           </li>
         ))}

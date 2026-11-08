@@ -94,9 +94,7 @@ export default function DemoLock() {
             Dit is een demoversie van uw website
           </h2>
           <p id="demo-lock-tekst" className="mt-3 text-[15px] leading-relaxed text-muted">
-            Deze pagina is al gebouwd en staat klaar. In de demo tonen we de homepagina, de
-            realisaties en het offerteformulier. De dienstenpagina&apos;s, de werkgebiedpagina&apos;s
-            en &lsquo;Over ons&rsquo; gaan mee online bij de oplevering.
+            In de demo tonen we de homepagina, de realisaties en het offerteformulier.
           </p>
 
           <div className="mt-6 grid gap-2.5">

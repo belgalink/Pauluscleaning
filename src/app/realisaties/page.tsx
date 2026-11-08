@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { Metadata } from "next";
 import BeforeAfter from "@/components/BeforeAfter";
 import Closer from "@/components/Closer";
@@ -31,27 +30,25 @@ const workGallery = [
 export default function RealisatiesPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-navy-900 text-white">
-        <Image src="/img/hero/svc-gevel.webp" alt="" fill priority sizes="100vw" className="object-cover opacity-20" aria-hidden="true" />
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900/95 to-navy-900/80" />
-        <div className="container-page relative py-12 sm:py-16 lg:py-20">
-          <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Realisaties" }]} />
-          <h1 className="mt-8 max-w-3xl text-[2rem] leading-[1.1] sm:text-[2.75rem] lg:text-[3.1rem]">
+      {/* Compacte kop: geen grote herosectie, zodat de beelden meteen in beeld komen. */}
+      <div className="border-b border-hairline bg-white">
+        <div className="container-page pb-5 pt-5 sm:pb-8 sm:pt-7">
+          <Breadcrumbs tone="dark" items={[{ label: "Home", href: "/" }, { label: "Realisaties" }]} />
+          <h1 className="mt-3 max-w-3xl text-[1.55rem] leading-[1.14] text-ink sm:mt-4 sm:text-[2.1rem]">
             {cases.length} keer hetzelfde huis, een paar dagen later
           </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-navy-100">
-            Geen stockfoto&apos;s, geen bewerkte beelden. Elk paar hieronder is dezelfde woning,
-            gefotografeerd voor en na de behandeling. Sleep de balk om te vergelijken.
+          <p className="mt-2.5 max-w-2xl text-[15px] leading-relaxed text-muted sm:mt-3 sm:text-base">
+            Elk paar is dezelfde woning, voor en na de behandeling. Sleep de balk om te vergelijken.
           </p>
         </div>
-      </section>
+      </div>
 
       {groups.map((group, gi) => {
         const items = cases.filter((c) => c.service === group.key);
         if (!items.length) return null;
         const service = services.find((s) => s.slug === group.key);
         return (
-          <Section key={group.key} tone={gi % 2 === 0 ? "white" : "surface"}>
+          <Section key={group.key} tone={gi % 2 === 0 ? "surface" : "white"} tightTop={gi === 0}>
             <SectionHead
               eyebrow={`${items.length} ${items.length === 1 ? "realisatie" : "realisaties"}`}
               title={group.title}
@@ -76,7 +73,7 @@ export default function RealisatiesPage() {
         );
       })}
 
-      <Section tone="white">
+      <Section tone="surface">
         <SectionHead
           eyebrow="Aan het werk"
           title="Zonnepanelen, ramen en de rest van het werk"
