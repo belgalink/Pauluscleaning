@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StickyCta from "@/components/StickyCta";
+import DemoLock from "@/components/DemoLock";
 import JsonLd from "@/components/JsonLd";
 import { localBusiness } from "@/lib/jsonld";
 import { noindex, site } from "@/lib/site";
@@ -90,6 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="inhoud">{children}</main>
         <Footer />
         <StickyCta />
+        <DemoLock />
         <JsonLd data={localBusiness} />
       </body>
     </html>

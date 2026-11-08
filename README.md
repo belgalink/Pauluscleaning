@@ -67,6 +67,25 @@ Op de demo-omgeving staan twee extra variabelen:
 |---|---|---|
 | `NEXT_PUBLIC_SITE_URL` | de Vercel-URL, zodat linkvoorbeelden werken | `https://pauluscleaning.be` of verwijderen |
 | `NEXT_PUBLIC_NOINDEX` | `1`, zodat Google de demo niet indexeert | verwijderen |
+| `NEXT_PUBLIC_DEMO_LOCK` | `1`, zet de diepere pagina's achter een venster | verwijderen |
+
+### De demovergrendeling
+
+Met `NEXT_PUBLIC_DEMO_LOCK=1` openen deze pagina's niet maar tonen ze een venster
+met de melding dat dit een demoversie is:
+
+- alle dienstenpagina's (`/diensten/...`)
+- `/werkgebied` en alle gemeentepagina's (`/werkgebied/...`)
+- `/over-ons`
+
+Open blijven: de homepagina, het dienstenoverzicht, de realisaties, het
+contactformulier en het privacybeleid. Dat is het volledige verkoopverhaal.
+
+De vergrendeling zit in `src/lib/demo.ts` (welke paden) en
+`src/components/DemoLock.tsx` (het venster). Het is een klikafvanger in de
+capture-fase, dus elke link op de site valt eronder, waar die ook staat.
+De pagina's blijven wel rechtstreeks bereikbaar via hun URL, zodat je ze in
+een gesprek alsnog kunt tonen.
 
 Met `NEXT_PUBLIC_NOINDEX=1` krijgt elke pagina een `noindex`-meta en verbiedt
 `robots.txt` alle crawlers. Vergeet die variabele dus niet weg te halen bij de

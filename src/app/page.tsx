@@ -14,13 +14,11 @@ import { faqPage } from "@/lib/jsonld";
 import { serviceAreas, site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Gevel-, dak- en opritreiniging in Brecht | Paulus Cleaning",
+  title: "Gevel-, oprit- en glasreiniging in regio Antwerpen | Paulus Cleaning",
   description:
-    "Gevel, dak, oprit, zonnepanelen en ramen reinigen in Brecht en de Noorderkempen. Techniek afgestemd op uw ondergrond. Stuur foto's door voor een vaste prijs.",
+    "Gevelreiniging, opritreiniging, glaswerk en zonnepanelen reinigen vanuit Brecht, in heel de regio Antwerpen. Stuur foto's door en krijg een vaste prijs.",
   alternates: { canonical: "/" },
 };
-
-const heroCase = getCase("dak-landelijke-woning")!;
 
 const featured = [
   "oprit-klinkers",
@@ -37,7 +35,7 @@ export default function HomePage() {
       {/* ---------------- HERO ---------------- */}
       <section className="relative overflow-hidden bg-navy-900 text-white">
         <Image
-          src="/img/hero/svc-dak.webp"
+          src="/img/hero/svc-gevel.webp"
           alt=""
           fill
           priority
@@ -57,15 +55,14 @@ export default function HomePage() {
                 Brecht &amp; de Noorderkempen
               </p>
 
-              <h1 className="mt-4 text-[1.9rem] leading-[1.08] sm:mt-5 sm:text-5xl lg:text-[3.6rem]">
-                Weer trots op uw woning,{" "}
-                <span className="text-sky-400">van dakpan tot oprit</span>
+              <h1 className="mt-4 text-[1.6rem] leading-[1.14] sm:mt-5 sm:text-[2.2rem] lg:text-[2.7rem]">
+                Gevelreiniging, opritreiniging, glaswerk en zonnepanelen{" "}
+                <span className="text-sky-400">in regio Antwerpen</span>
               </h1>
 
               <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-navy-100 sm:mt-6 sm:text-lg">
-                Mos op het dak, groene aanslag op de gevel, een oprit die grijs ziet? Wij reinigen met
-                de techniek die bij úw ondergrond past: stoom, softwash of osmosewater. Stuur een paar
-                foto&apos;s door en u krijgt een vaste prijs, vrijblijvend.
+                Van gevel en oprit tot dak, crepi en terras, telkens met de techniek die bij úw
+                ondergrond past. Stuur een paar foto&apos;s door en u krijgt een vaste prijs.
               </p>
 
               <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
@@ -103,9 +100,9 @@ export default function HomePage() {
 
             <div className="pc-reveal mt-10 lg:mt-0">
               <BeforeAfter
-                slug={heroCase.slug}
-                title="Pannendak in de Noorderkempen"
-                tag="Dakreiniging"
+                slug="gevel-nieuwbouw-hero"
+                title="Nieuwbouwgevel met cementsluier en bouwvuil"
+                tag="Gevelreiniging"
                 aspect="4/3"
                 priority
                 showCaption={false}
@@ -115,7 +112,7 @@ export default function HomePage() {
                 <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4 text-sky-400" aria-hidden="true">
                   <path d="M8 5 3.5 10 8 15M12 5l4.5 5-4.5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                Sleep de balk en zie het verschil. Dit is een echt dak uit ons archief.
+                Sleep de balk. Cementsluier en bouwvuil na de ruwbouw, van een echte werf.
               </p>
             </div>
           </div>
